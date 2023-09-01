@@ -1,0 +1,39 @@
+import serial
+
+def send_command_with_confirmation(ser, command):
+    ser.write(command.encode() + b'\n')
+    response = ser.readline().decode().strip()
+    return response
+
+# Serial port configuration
+ser = serial.Serial('/dev/ttyACM0', baudrate=9600, timeout=1)
+
+try:
+    if ser.is_open:
+        # Wait for a connection message or any other initialization response
+        connection_response = ser.readline().decode().strip()
+        print("Connection Response:", connection_response)
+
+        if connection_response == "Connected":  # Adjust this condition as needed
+            # Open the G-code file
+            with open('test.gcode', 'r') as gcode_file:
+                commands = gcode_file.readlines()
+
+            for command in commands:
+                command = command.strip()
+                response = send_command_with_confirmation(ser, command)
+                print(f"Sent: {command}\nReceived: {response}\n")
+                if response != 'ok':
+                    print("Error: Did not receive 'ok' confirmation. Stopping.")
+                    break
+        else:
+            print("Device did not respond with expected connection message.")
+
+    else:
+        print("Serial port is not open.")
+
+except serial.SerialException as e:
+    print("Serial communication error:", e)
+
+finally:
+    ser.close()
