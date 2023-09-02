@@ -16,7 +16,7 @@ The code has been tested using and arduino uno and the Adafruit Motor shield V2
 ### Parts
 + Arduino Uno
 + Adafruit Motor shield V2
-+Cd rom recicled stepper motors (and fixing bolts) x2
++ Cd rom recicled stepper motors (and fixing bolts) x2
 + 3mm rods x5 (at least)
 + Psu 5v (cellphone)
 ## Gcode Sender 
