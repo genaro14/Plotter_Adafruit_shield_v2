@@ -9,7 +9,7 @@ This is more a toy than a working machine. You are adviced
 [Carriages: ](https://www.thingiverse.com/thing:3561319)        
 
  
-
+![Plotter](https://github.com/genaro14/Plotter_Adafruit_shield_v2/blob/main/images/WhatsApp%20Image%202023-09-04%20at%2023.21.32(1).jpeg)
 
 The code has been tested using and arduino uno and the Adafruit Motor shield V2
 
